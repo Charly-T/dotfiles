@@ -1,0 +1,35 @@
+# This is Git's per-user configuration file.
+[core]
+  editor = vim
+  autocrlf = input
+[user]
+  email = set.charly@gmail.com
+  name = Charly T
+[alias]
+  co = checkout
+  s = status
+  sw = switch
+  dis = checkout -- .
+  back = "!f(){ git checkout @{-$1};};f"
+  cod = checkout develop
+  com = checkout main
+  um = !git checkout main && git pull && git back 1
+  mm = merge main
+  cicd = commit -am 'feat: cicd' && git push
+  med = merge develop
+  l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %C(green)%an%Creset, %C(red)%ar%Creset'
+  ll = log --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %C(green)%an%Creset, %C(red)%ar%Creset'
+  pub = push -u origin HEAD
+  cob = "!f(){ git checkout -b feature/ODP-\"$1\";};f"
+  cot = "!f(){ git checkout feature/ODP-\"$1\";};f"
+  upush = cherry -v --abbrev=7
+  unpushed = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
+  prune-local = !git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
+  prune-local-unmerged = !git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+  history = "!f(){ git reflog | grep -o \"checkout: moving from .* to \" | sed -e 's/checkout: moving from //' -e 's/ to $//' | head -20 | nl ;};f"
+  h = history
+  cleanm = "!f(){ git branch --merged | egrep -v \"(^\\*|master|develop)\" ;};f"
+  aliases = "!f(){ git config --list | grep alias | sed -e 's/alias.//' ;};f"
+
+[pull]
+	ff = only
