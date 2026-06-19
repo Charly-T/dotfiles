@@ -1,0 +1,26 @@
+[terminal]
+shell = { program = "/opt/homebrew/bin/tmux", args = ["new-session", "-A", "-s", "main"] }
+
+[window]
+opacity = 0.8  # Ajusta el valor entre 0.0 (completamente transparente) y 1.0 (opaco)
+
+# Fonts
+[font]
+size = 14.0
+
+[font.bold]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Regular"
+
